@@ -1,28 +1,20 @@
-import React, { useState } from 'react';
-import styles from './sidenav.css';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './sidenav.css';
 
-function SideNav({ scrollToComponent }) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div className={styles.container}>
-            <nav className={`${styles['side-nav']} ${isOpen ? '' : styles['side-navClosed']}`}>
-                <ul>
-                    {['시세차트', '매매동향', '재무', '뉴스 및 공시', '증권 레포트'].map((item, index) => (
-                        <li 
-                            key={index} 
-                            onClick={() => scrollToComponent(item)}
-                        >
-                            {item}
-                        </li>
-                    ))}
-                </ul>
-            </nav>
-            <button className={styles['sideNav_button']} onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? 'SideNav▲' : 'SideNav▼'}
-            </button>
-        </div>
-    );
-}
+const SideNav = ({ isVisible, toggleNav }) => {
+  return (
+    <aside className={`side-nav ${isVisible ? 'visible' : ''}`} onClick={toggleNav}>
+      <nav>
+        <ul>
+          <li><NavLink to="/" activeClassName="active">HOME</NavLink></li>
+          <li><NavLink to="/book" activeClassName="active">BOOK</NavLink></li>
+          <li><NavLink to="/facility" activeClassName="active">FACILITY</NavLink></li>
+          <li><NavLink to="/my" activeClassName="active">MY</NavLink></li>
+        </ul>
+      </nav>
+    </aside>
+  );
+};
 
 export default SideNav;

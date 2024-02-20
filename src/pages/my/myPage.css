@@ -1,0 +1,9 @@
+.content-container {
+    display: flex;
+    gap: 20px; /* 컨텐트 사이의 간격 */
+    justify-content: center; /* 가운데 정렬 */
+    margin-bottom: 20px; /* 섹션 사이의 간격 */
+  }
+  
+  /* 필요한 경우 다른 스타일 추가 */
+  

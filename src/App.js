@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CoHeader from './components/common/coheader/coheader'
 import Cofooter from './components/common/cofooter/cofooter';
-import "./styles/global.css";
-
+import style from "./styles/global.css";
+import FacilityPage from './pages/facility/facilityPage';
+import MyPage from './pages/my/myPage';
+import HomePage from './pages/home/homePage';
+import BookPage from './pages/book/bookPage';
 
 function App() {
 
@@ -12,16 +15,14 @@ function App() {
         <Router>
             <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
                 <CoHeader />
-                <h1>test</h1>
-                {/* <Routes>
-                    <Route path="/detail/:stock_number" element={<DetailPage />} />
-                    <Route path="/guide" element={<GuidePage />} />
-                    <Route path="/filter" element={<FilterPage />} />
-                    <Route path='/main' element={<MainPage />} />
-                    <Route path='/' element={<MainPage />} />
-                    <Route path='/feedback' element={<FeedbackPage />} />
-                    <Route path="/login" element={<LoginPage onLogin={handleLogin}  />} />
-                </Routes> */}
+                <div className="route-container"> {/* route-container 클래스 적용 */}
+                    <Routes>
+                        <Route path="/"element={<HomePage />} />
+                        <Route path="/book"element={<BookPage />} />
+                        <Route path="/facility/"element={<FacilityPage />} />
+                        <Route path="/my/" element={<MyPage />} />
+                    </Routes>
+                </div>
                 <Cofooter />
             </div>
         </Router>
